@@ -1,3 +1,4 @@
 <?php
-echo "Test hello world!";
+echo "Test hello world!\n";
+echo data("H:m:s");
 ?>
