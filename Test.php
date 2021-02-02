@@ -18,23 +18,34 @@
 //echo phpinfo();
 echo "<h1>".date('jS F Y  H:i:s')."</h1></br>";
 
-function isLeapYear(int $year)
+/**
+ * The $minute variable contains a number from 0 to 59 (i.e. 10 or 25 or 60 etc).
+ * Determine in which quarter of an hour the number falls.
+ * Return one of the values: "first", "second", "third" and "fourth".
+ * Throw InvalidArgumentException if $minute is negative of greater then 60.
+ * @see https://www.php.net/manual/en/class.invalidargumentexception.php
+ *
+ * @param  int  $minute
+ * @return string
+ * @throws InvalidArgumentException
+ */
+function getMinuteQuarter(int $minute=0)
 {
-    $feb = cal_days_in_month(CAL_GREGORIAN, 2, $year);
-
-    if ($feb == 29) {
-        return TRUE;
+    if ($minute < 0 || $minute >= 60) {
+        throw new InvalidArgumentException("The number: $minute - doesn\`t fit in minute range. ");
+    } elseif ($minute>= 0 && $minute < 15) {
+        $answer = "first";
+    } elseif ($minute >= 15 && $minute < 30) {
+        $answer = "second";
+    } elseif ($minute >= 30 && $minute < 45) {
+        $answer = "third";
     } else {
-        throw new InvalidArgumentException("$year - is not leap year");
+        $answer = "fourth";
     }
+    return $answer;
 }
 
-if(isLeapYear(1948)===TRUE){
-    echo "leap TRUE";
-    }
-
-
-
+echo getMinuteQuarter(58);
 
 function tripleInteger($int)
 {
