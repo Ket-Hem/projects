@@ -9,6 +9,9 @@
             text-align: center;
             font-size: 250%;
         }
+        body{
+            text-align: center
+         }
     </style>
 <title>Test</title>
 </head>
@@ -19,6 +22,15 @@ echo "<h1>".basename(__FILE__).date(" jS F Y  H:i:s")."</h1><hr>";
 /****************************************************************************/
 
 
+function getBrandName(string $noun)
+{
+    if ($noun[0] == $noun[strlen($noun)-1]) {
+        return ucfirst($noun.substr($noun,1));
+    }
+    return "The ".ucfirst($noun);
+}
+
+echo getBrandName('abca');
 
 /*****************************************************************************/
 ?>
