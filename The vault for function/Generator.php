@@ -2,7 +2,7 @@
 function generator ($begin = 0, $end = 100)
 {
     for ($i = $begin; $i < $end; $i++ ) {
-        echo "Value = {$i} <br/>"   ;
+        echo "Value = $i <br/>";
         yield $i;
     }
 }

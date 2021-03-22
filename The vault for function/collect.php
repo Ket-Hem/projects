@@ -4,7 +4,7 @@
 $arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // функція генератор
-function collect($arr, $callback)
+function collect ($arr, $callback)
 {
     foreach ($arr as $value) {
         // перевіряє чи значення НЕ є парним
