@@ -18,39 +18,9 @@
 <body>
 <?php
 /*******************************************************************************/
-function randomArray ()
-{
-    $array = [];
-    $arrayBig = [];
 
-    for ($i=0; $i<5; $i++) {
-        for($i=0; $i<5; $i++) {
-            $array[] = mt_rand(100,400);
-        }
-        $arrayBig[] = array_fill(0,1,$array);
-    }
 
-    return $arrayBig;
-}
-function evalTest()
-{
-    $string = 'чашка';
-    $name = 'кофе';
-    $str = 'Это $string с моим $name.';
-    echo $str. "\n";
-    eval("\$str = \"$str\";");
-    echo $str. "\n";
-}
-function randomFunctionName ()
-{
-    $squarers = [];
-    for ($i = 0; $i < 1000; $i++) {
-        $id = uniqid("F", true);+
-        eval ("function $id () { echo $i * $i; }");
-        $squarers[] = $id;
-    }
-    return $squarers;
-}
+
 /*******************************************************************************/
 ?>
 </body>
